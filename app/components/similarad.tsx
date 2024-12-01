@@ -1,5 +1,4 @@
 import Image from "next/image";
-import FavOff from "../svgs/fav-off";
 import PromotedStar from "./promotedstar";
 import FavButton from "./favbutton";
 import { useCallback, useState } from "react";

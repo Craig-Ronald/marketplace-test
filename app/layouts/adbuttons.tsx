@@ -1,8 +1,6 @@
 import { useCallback, useState } from "react";
 import DownloadIcon from "../svgs/download-icon";
-import FavOff from "../svgs/fav-off"
 import ReportIcon from "../svgs/report-icon";
-import FavOn from "../svgs/fav-on";
 import Button from "../components/button";
 import FavButton from "../components/favbutton";
 

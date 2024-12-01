@@ -9,7 +9,7 @@ export default function GetAdDetails(advertId: string): ApiResponse
 	"error_code": 0,
 	"error_text": "",
 	"data": {
-		"ID": "1443761",
+		"ID": ${advertId},
 		"AdRef": "CS43707C7",
 		"UserID": "123456",
 		"Username": "testing",

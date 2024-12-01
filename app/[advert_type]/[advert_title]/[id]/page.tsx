@@ -1,9 +1,7 @@
 'use client'
-import HeroSection from '../../../layouts/hero';
 import ProductDetails from '../../../layouts/addetail';
 import ImageGallery from '../../../layouts/imagesgallery';
 import ContactForm from '../../../layouts/contactform';
-import Sidebar from '../../../layouts/similarads';
 import Footer from '../../../layouts/footer';
 import type { AdDetailProps } from '../../../types/apitypes';
 import type { ImageGalleryProps } from '../../../types/props';
@@ -13,7 +11,6 @@ import Header from '@/app/layouts/header';
 import Breadcrumbs from '@/app/layouts/breadcrumbs';
 import Modal from '@/app/components/modal';
 import { ModalProvider } from '@/app/contexts/contactmodalprovider';
-import SimilarAds from '../../../layouts/similarads';
 
 
 export default function AdDetailsPage() {
