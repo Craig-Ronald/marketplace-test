@@ -40,15 +40,27 @@ const imageArray = images?.images ?? [];
           {imageArray.map((image, index) => {
             return (
               <SwiperSlide key={'slide' + index} className='!w-auto group overflow-hidden'>
+                  {index < 5 ?
                   <Image
+                    priority
                     key={'image' + index}
                     src={image}
                     alt={`Campervan ${index}`}
-                    loading="lazy"
                     className='object-cover transition-transform duration-500 group-hover:scale-125 cursor-pointer'
                     width={400}
                     height={300}
                   />
+                  :
+                  <Image
+                    // priority
+                    key={'image' + index}
+                    src={image}
+                    alt={`Campervan ${index}`}
+                    loading='lazy'
+                    className='object-cover transition-transform duration-500 group-hover:scale-125 cursor-pointer'
+                    width={400}
+                    height={300}
+                  />}
               </SwiperSlide>
             );
           })}
