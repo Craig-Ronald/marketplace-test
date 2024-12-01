@@ -1,0 +1,35 @@
+.swiper-button-next, .swiper-button-prev {
+  width: 180px !important;
+  top: 22px !important;
+  height: 100% !important;
+  color: white !important;
+  padding: 0 10px;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 30px !important;
+}
+
+.swiper-button-next {
+  right: 0 !important;
+  background: linear-gradient(270deg,#3B343B 0%,rgba(59,52,59,0) 100%);
+  justify-content: flex-end !important;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  opacity: 1;
+}
+
+.swiper-button-prev {
+  left: 0 !important;
+  background: linear-gradient(90deg,#3B343B 0%,rgba(59,52,59,0) 100%);
+  justify-content: flex-start !important;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: none !important;
+  }
+}
