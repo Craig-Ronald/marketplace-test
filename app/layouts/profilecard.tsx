@@ -16,10 +16,6 @@ const ProfileCard: React.FC = () => {
         console.log("Calling");
     }, []);
 
-    const onMessage = useCallback(() => {
-        console.log("Messaging");
-    }, []);
-
     const onReserve = useCallback(() => {
         console.log("Reserving");
     }, []);

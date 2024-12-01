@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/ImageGallery.css';
 import type { ImageGalleryProps } from '../types/props';
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -25,16 +25,8 @@ const imageArray = images?.images ?? [];
     )
   }
 
-  const [selectedImage, setSelectedImage] = useState<string>(imageArray[0]);
-
   return (
     <div className="gallery-container">
-      {/* Main Image Display */}
-      {/* <div className="main-image">
-        <img src={selectedImage?.replace("big","small")} loading="lazy" alt="Selected Campervan" />
-      </div> */}
-
-      {/* Thumbnail Images */}
       <Swiper
         className='flex'
         navigation
@@ -53,7 +45,6 @@ const imageArray = images?.images ?? [];
                     src={image?.replace("big", "small")}
                     alt={`Campervan ${index}`}
                     loading="lazy"
-                    onClick={() => setSelectedImage(image)}
                     className='object-contain transition-transform duration-500 group-hover:scale-125 cursor-pointer'
                     width={400}
                     height={300}
