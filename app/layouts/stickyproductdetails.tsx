@@ -4,12 +4,16 @@ import { useModal } from "../contexts/contactmodalprovider";
 import Button from "../components/button";
 import ChatIcon from "../svgs/chat-icon";
 import CallIcon from "../svgs/call-icon";
+import Image from "next/image";
 
 type StickyProductDetailsProps = {
+    title?: string,
+    price?: string,
+    thumbnail?: string,
     isSticky: boolean;
 }
 
-const StickyProductDetails: React.FC<StickyProductDetailsProps> = ({ isSticky }) => {
+const StickyProductDetails: React.FC<StickyProductDetailsProps> = ({ title, price, thumbnail, isSticky }) => {
 
     const [isFav, setIsFav] = useState(false);
     const { open } = useModal();
@@ -30,7 +34,17 @@ const StickyProductDetails: React.FC<StickyProductDetailsProps> = ({ isSticky })
             id="sticky-product-details" 
             className={`${baseClass} ${stickyClass}`}
         >
-            <div className="tpl-container gap-[16px] flex items-center justify-between">
+            <div className="tpl-container gap-[16px] flex items-center justify-between md:gap-[120px]">
+                <div className="hidden md:flex items-center gap-[16px]">
+                    <div className="border border-gray-200 rounded-md w-[48px] h-[48px] overflow-hidden">
+                        {thumbnail && <Image src={thumbnail} alt="Product thumbnail" width={48} height={48} />}
+                    </div>
+                    <div className="flex flex-col">
+                        <p className="text-[16px]">{price}</p>
+                        <p className="text-[18px] font-bold">{title}</p>
+                    </div>
+                </div>
+                <div className="flex grow justify-between items-center gap-[16px]">
                 <FavButton circularOutline={true} isFav={isFav} toggleFav={toggleFav} />
                 <Button 
                     background="primary" 
@@ -48,6 +62,7 @@ const StickyProductDetails: React.FC<StickyProductDetailsProps> = ({ isSticky })
                     text="Call" 
                     onClick={onCall} 
                 />
+                </div>
             </div>
         </div>
     )
