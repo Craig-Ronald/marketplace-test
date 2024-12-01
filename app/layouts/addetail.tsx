@@ -22,6 +22,7 @@ const ProductDetails: React.FC<AdDetailProps>= ({adDataResponse})=>{
   const title = adDataResponse.data.Title;
   const description = adDataResponse.data.Description;
   const price = adDataResponse?.data?.PriceCurrency?.replace("&pound;","£");
+  const thumbnail = adDataResponse?.data?.Photos[0]?.PathBig;
 
   const productDetailsRef = useRef(null);
 
@@ -33,7 +34,7 @@ const ProductDetails: React.FC<AdDetailProps>= ({adDataResponse})=>{
 
     matchMedia.add('(min-width: 1024px)', () => {
       
-      // Pins the sidebar to the top of the viewport when the profile card is in view
+      // Pins the sidebar to the top of the viewport when the profile card goes out of view
       ScrollTrigger.create({
         pin: '#ad-sidebar',
         trigger: '#profile-card',
@@ -65,6 +66,8 @@ const ProductDetails: React.FC<AdDetailProps>= ({adDataResponse})=>{
     });
 
     matchMedia.add('(max-width: 1023px)', () => {
+
+      setProductDetailsIsSticky(true);
 
       // Pins the product details sticky to the bottom of the viewport until it reaches the bottom of the viewport
       ScrollTrigger.create({
@@ -114,17 +117,19 @@ const ProductDetails: React.FC<AdDetailProps>= ({adDataResponse})=>{
         <SimilarAds  />
 
         {/* Remove after testing scroll pin */}
-        <div className='h-[1000px] bg-[#f0f0f0]'></div>
+        <div className='h-[1000px] bg-[#f0f0f0] p-[12px]'>
+          <p>This is here to increase the height of the left section and demonstrate the pinned right side</p>
+        </div>
 
       </div>
 
       <div id="right" className="flex flex-col items-center gap-[12px] w-full lg:w-auto">
         <ProfileCard />
-        <div id="ad-sidebar" className="ad-container hidden flex-col justify-center items-center gap-[32px] lg:flex">
-          <div className="ad-content w-[300px] h-[600px] bg-[#f0f0f0]">
+        <div id="ad-sidebar" className="ad-container w-full flex-col justify-center items-center gap-[32px] flex">
+          <div className="hidden lg:block ad-content w-[300px] h-[600px] bg-[#f0f0f0]">
             <p>Google Ads Placeholder</p>
           </div>
-          <div className="flex justify-between items-center gap-[8px]">
+          <div className="flex justify-between items-center gap-[8px] w-full">
             <AffiliateButton 
               image="https://caravansforsale.co.uk/img/ads_textlink/image_150.png" 
               alt="Caravans For Sale" 
@@ -139,7 +144,7 @@ const ProductDetails: React.FC<AdDetailProps>= ({adDataResponse})=>{
         </div>
       </div>
     </div>
-    <StickyProductDetails isSticky={productDetailsIsSticky} />
+    <StickyProductDetails title={title} price={price} thumbnail={thumbnail} isSticky={productDetailsIsSticky} />
     </>
   );
 };
