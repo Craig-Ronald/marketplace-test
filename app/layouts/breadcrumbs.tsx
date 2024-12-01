@@ -12,12 +12,12 @@ const Breadcrumbs: React.FC<{breadcrumbs: string[]}> = ({breadcrumbs}) => {
             <div className="flex tpl-container justify-between items-center overflow-x-scroll">
                 <ul className="flex gap-[8px] text-[12px] shrink-0">
                     {breadcrumbs.map((breadcrumb, index) => (
-                        <>
-                        <li key={index}>
-                            <a href={`/${breadcrumb}`}>{truncateBreadcrumb(breadcrumb)}</a>
-                        </li>
-                        {index < breadcrumbs.length - 1 && <span> / </span>}
-                        </>
+                        <div key={"crumb-container" + index} className="flex items-center gap-[12px]">
+                            <li key={'crumb' + index}>
+                                <a key={'link' + index} href={`/${breadcrumb}`}>{truncateBreadcrumb(breadcrumb)}</a>
+                            </li>
+                            {index < breadcrumbs.length - 1 && <span key={"slash" + index}>/</span>}
+                        </div>
                     ))}
                 </ul>
                 <div className="hidden md:flex items-center gap-[4px] group cursor-pointer shrink-0">

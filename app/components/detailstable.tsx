@@ -13,10 +13,10 @@ const DetailsTable: React.FC<{fields: DataField[]}> = (fields) => {
         <table className="w-full">
             <tbody>
                 {rows.map((row, index) => (
-                    <tr key={index}>
+                    <tr key={'row' + index}>
                         {row.map((field: DataField, index) => {
                             return (
-                                <td key={index} className="py-[8px]">
+                                <td key={'field' + index} className="py-[8px]">
                                     <p className="text-[14px]">
                                         {field.label} <span className="font-bold">{field.value}</span>
                                     </p>

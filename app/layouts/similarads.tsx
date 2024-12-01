@@ -18,7 +18,7 @@ const SimilarAds: React.FC<SimilarAdsProps> = ({
       <div className="flex flex-wrap gap-[12px]">
         {similarAds.map((ad, index: number) => (
           <SimilarAd
-            key={index}
+            key={'ad' + index}
             name={ad.text}
             price={ad.price}
             location={ad.location}

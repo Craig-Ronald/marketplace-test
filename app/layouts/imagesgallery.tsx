@@ -39,9 +39,9 @@ const imageArray = images?.images ?? [];
         {/* <div className="thumbnail-row"> */}
           {imageArray.map((image, index) => {
             return (
-              <SwiperSlide key={index} className='!w-auto group overflow-hidden'>
+              <SwiperSlide key={'slide' + index} className='!w-auto group overflow-hidden'>
                   <Image
-                    key={index}
+                    key={'image' + index}
                     src={image?.replace("big", "small")}
                     alt={`Campervan ${index}`}
                     loading="lazy"
