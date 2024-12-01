@@ -26,7 +26,7 @@ const SimilarAd: React.FC<SimilarAdProps> = ({name, price, location, image, isPr
     return (
         <div className={`${baseClass} ${hoverClass} ${promotedClass}`}>
             {isPromoted && <PromotedStar />}
-            <Image className="w-auto" src={image} alt={name} width={222} height={137} />
+            <Image className="w-auto object-cover" src={image} alt={name} width={222} height={137} />
             <div className="p-[8px] flex flex-col gap-[10px] justify-between grow">
                 <div className="flex flex-col gap-[8px]">
                     <h4 className="text-[14px] font-bold">{name}</h4>

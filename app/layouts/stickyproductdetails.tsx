@@ -36,8 +36,8 @@ const StickyProductDetails: React.FC<StickyProductDetailsProps> = ({ title, pric
         >
             <div className="tpl-container gap-[16px] flex items-center justify-between md:gap-[120px]">
                 <div className="hidden md:flex items-center gap-[16px]">
-                    <div className="border border-gray-200 rounded-md w-[48px] h-[48px] overflow-hidden">
-                        {thumbnail && <Image src={thumbnail} alt="Product thumbnail" width={48} height={48} />}
+                    <div className="border border-gray-200 rounded-md w-[48px] h-[48px] overflow-hidden shrink-0">
+                        {thumbnail && <Image className="object-cover" src={thumbnail} alt="Product thumbnail" width={48} height={48} />}
                     </div>
                     <div className="flex flex-col">
                         <p className="text-[16px]">{price}</p>

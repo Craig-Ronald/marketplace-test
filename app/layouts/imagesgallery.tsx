@@ -42,10 +42,10 @@ const imageArray = images?.images ?? [];
               <SwiperSlide key={'slide' + index} className='!w-auto group overflow-hidden'>
                   <Image
                     key={'image' + index}
-                    src={image?.replace("big", "small")}
+                    src={image}
                     alt={`Campervan ${index}`}
                     loading="lazy"
-                    className='object-contain transition-transform duration-500 group-hover:scale-125 cursor-pointer'
+                    className='object-cover transition-transform duration-500 group-hover:scale-125 cursor-pointer'
                     width={400}
                     height={300}
                   />
